@@ -1,0 +1,18 @@
+   Client (Máy khách)          -----------      Server (Cung cấp dịch vụ)
+(Front-end: HTML, CSS, JS)                  (PHP, JS, Java, C#, Python, ...)
+                                            Firebase: Cloud Firestore: lưu dữ liệu
+
+Tạo web -> máy tính, điện thoại
+
+GIT: công nghệ quản lý phiên bản mã nguồn
+.0.1
+.0.2
+
+Tạo repo, commit, branch, merge code, push, clone, pull,  
+
+Không làm bài tập: 10k
+
+
+
+// Module: file thực hiện công việc riêng biệt
+// Từ khóa: export, export default, import

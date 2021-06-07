@@ -1,0 +1,39 @@
+.comic-container {
+    background-color: #ffffff;
+    width: 600px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    padding: 10px;
+    font-family: Calibri;
+    margin-top: 10px;
+}
+
+.comic-container .comic-info {
+    display: flex;
+}
+
+.comic-container .comic-image {
+    width: 200px;
+    height: 300px;
+}
+
+.comic-container .comic-name {
+    font-size: 25px;
+    text-align: center;
+    color: #46c4ff;
+}
+
+.comic-container .comic-description {
+    text-align: center;
+}
+
+.comic-container .comic-detail {
+    display: flex;
+    margin-top: 5px;
+}
+
+.comic-container .comic-detail > * {
+    padding: 5px;
+    border: 1px solid #cccccc;
+    margin-right: 10px;
+}

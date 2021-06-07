@@ -1,0 +1,20 @@
+@import url("./comic-container.css");
+
+.main-menu {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #212121;
+    height: 50px;
+}
+
+.main-menu .menu-item a{
+    font-size: 20px;
+    font-family: Calibri;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.main-menu .menu-item.highlight {
+    background-color: #ffabab;
+}
