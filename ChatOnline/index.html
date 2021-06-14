@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/app.css">
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-auth.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyBJ4Bs8sKWFPq6d1MktzALBCVkaWX2o1ko",
+            authDomain: "ci61-5cbe8.firebaseapp.com",
+            projectId: "ci61-5cbe8",
+            storageBucket: "ci61-5cbe8.appspot.com",
+            messagingSenderId: "1021324329074",
+            appId: "1:1021324329074:web:0907b5cc1c314d2c1742eb"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+</head>
+
+<body>
+    <div id="app">
+
+        <register-form></register-form>
+    </div>
+
+    <script src="./js/app.js" type="module"></script>
+    <script src="./js/learning.js"></script>
+</body>
+
+</html>

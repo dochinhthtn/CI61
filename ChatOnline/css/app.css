@@ -1,0 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url("./input-wrapper.css");
+@import url("./register-form.css");
+
+* {
+    font-family: 'Open Sans', sans-serif;
+}
