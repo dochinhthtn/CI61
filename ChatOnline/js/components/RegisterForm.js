@@ -52,9 +52,16 @@ export default class RegisterForm extends HTMLElement {
                 }, "Invalid passsword confirmation");
 
             if (isPassed) {
-                await register(name, email, password);
-                console.log(res);
-                alert('Register successfully');
+
+                try {
+                    await register(name, email, password); // khả năng sinh lỗi
+                    alert('Register successfully');
+                } catch(error) {
+                    // xử lý lỗi
+                    alert(error.message);
+                }
+                // console.log(res);
+                console.log("This code must be executed");
             }
         }
     }

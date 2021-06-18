@@ -35,3 +35,15 @@ function calculateSomething(calc) {
 calculateSomething(function(n) {
     return 10 - n;
 });
+
+
+1. -----
+2. -----
+3. ----- -> error
+4. -----
+5. -----
+6. --- bắt buộc phải thực hiện dù có lỗi hay ko
+
+
+try/catch/throw
+-> fetch dữ liệu từ bên ngoài: lỗi kết nối, lỗi mạng, lỗi xác thực người dụng (key), ...
