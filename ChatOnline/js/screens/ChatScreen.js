@@ -1,7 +1,14 @@
 const $template = document.createElement('template');
 $template.innerHTML = `
     <div class="chat-screen">
-        <h1>Welcome to chat screen</h1>
+        <div class="aside-left">
+            <app-stat></app-stat>
+            <user-actions></user-actions>
+        </div>
+
+        <div class="chat-container">
+        
+        </div>
     </div>
 `;
 
