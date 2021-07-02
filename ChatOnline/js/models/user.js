@@ -1,4 +1,4 @@
-import { getDataFromDocs } from "../utils.js";
+import { getDataFromDoc, getDataFromDocs } from "../utils.js";
 
 export async function register(name, email, password) {
     await firebase.auth().createUserWithEmailAndPassword(email, password); // có khả năng sinh lỗi -> email đã được sử dụng
@@ -56,4 +56,19 @@ export async function updateCurrentUser(data) {
     let currentUser = firebase.auth().currentUser;
     console.log(currentUser.uid);
     await updateUser(currentUser.uid, data);
+}
+
+export function listenCurrentUser(callback) {
+    let currentUser = firebase.auth().currentUser;
+    console.log(currentUser);
+    firebase.firestore().collection('users').doc(currentUser.uid).onSnapshot(response => {
+        // khi response có getter là docs -> getDataFromDocs
+        // ngược lại -> getDataFromDoc
+        callback(getDataFromDoc(response));
+    });
+}
+
+export async function getFlirtingUsers() {
+    let response = await firebase.firestore().collection('users').where('status', '==', 'flirting').get();
+    return getDataFromDocs(response.docs);
 }

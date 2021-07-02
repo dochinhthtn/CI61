@@ -20,9 +20,14 @@ router.on('/auth', function () {
 }).resolve();
 
 router.on('/chat', function () {
+    let currentUser = firebase.auth().currentUser;
+    if(currentUser == null) {
+        router.navigate('/auth');
+        return;
+    }
+
     document.getElementById('app').innerHTML = '<chat-screen></chat-screen>';
 }).resolve();
-
 
 
 window.router = router;

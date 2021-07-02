@@ -1,3 +1,5 @@
+import { listenCurrentUser } from "../models/user.js";
+
 const $template = document.createElement('template');
 $template.innerHTML = `
     <div class="chat-screen">
@@ -16,6 +18,14 @@ export default class ChatScreen extends HTMLElement {
     constructor() {
         super();
         this.appendChild($template.content.cloneNode(true));
+
+        this.$userActions = this.querySelector('user-actions');
+    }
+
+    connectedCallback() {
+        listenCurrentUser((user) => {
+            this.$userActions.setAttribute('status', user.status);
+        });
     }
 }
 
