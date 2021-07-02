@@ -4,6 +4,7 @@ import LoginForm from "./components/LoginForm.js";
 import AppStat from "./components/AppStat.js";
 import UserActions from "./components/UserActions.js";
 import MessageContainer from "./components/MessageContainer.js";
+import MessageList from "./components/MessageList.js";
 
 import AuthScreen from "./screens/AuthScreen.js";
 import ChatScreen from "./screens/ChatScreen.js";

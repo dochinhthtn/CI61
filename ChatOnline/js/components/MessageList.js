@@ -15,7 +15,14 @@ export default class MessageList extends HTMLElement {
     }
 
     static get observedAttributes() {
-        return ['messages'];
+        return ['messages']; // json
+    }
+
+    attributeChangedCallback(attrName, oldValue, newValue) {
+        if(attrName == 'messages') {
+            let data = JSON.parse(newValue);
+            console.log(data);
+        }
     }
 }
 

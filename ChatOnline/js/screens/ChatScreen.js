@@ -9,10 +9,17 @@ $template.innerHTML = `
         </div>
 
         <div class="chat-container">
-
+            <message-list></message-list>
         </div>
     </div>
 `;
+
+let messages = [
+    {content: 'hello', owned: true},
+    {content: 'hi', owned: false},
+    {content: 'what is your name?', owned: true},
+    {content: 'My name is You', owned: false},
+];
 
 export default class ChatScreen extends HTMLElement {
     constructor() {
@@ -20,6 +27,7 @@ export default class ChatScreen extends HTMLElement {
         this.appendChild($template.content.cloneNode(true));
 
         this.$userActions = this.querySelector('user-actions');
+        this.$messageList = this.querySelector('message-list');
     }
 
     connectedCallback() {
@@ -28,6 +36,8 @@ export default class ChatScreen extends HTMLElement {
             this.$userActions.setAttribute('status', user.status);
             this.$userActions.setAttribute('conversation-id', user.currentConversation);
         });
+
+        this.$messageList.setAttribute('messages', JSON.stringify(messages));
     }
 }
 
