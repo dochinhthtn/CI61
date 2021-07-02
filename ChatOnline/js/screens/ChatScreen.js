@@ -9,7 +9,7 @@ $template.innerHTML = `
         </div>
 
         <div class="chat-container">
-        
+
         </div>
     </div>
 `;
@@ -24,7 +24,9 @@ export default class ChatScreen extends HTMLElement {
 
     connectedCallback() {
         listenCurrentUser((user) => {
+            console.log(user);
             this.$userActions.setAttribute('status', user.status);
+            this.$userActions.setAttribute('conversation-id', user.currentConversation);
         });
     }
 }

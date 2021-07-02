@@ -37,7 +37,7 @@ export default class UserActions extends HTMLElement {
     }
 
     static get observedAttributes() {
-        return ['status'];
+        return ['status', 'conversation-id'];
     }
 
     attributeChangedCallback(attrName, oldValue, newValue) {
@@ -92,24 +92,29 @@ export default class UserActions extends HTMLElement {
             updateCurrentUser({ status: 'free' });
         });
 
-        this.$endConversationBtn.addEventListener('click', () => {
-            updateCurrentUser({ status: 'free', currentConversation: '' });
-            let randomUserId = this.getRandomUser();
-            updateUser(randomUserId, { status: 'free', currentConversation: '' });
-            
-            // let conversation = await getConversationById();
+        this.$endConversationBtn.addEventListener('click', async () => {
 
+            // lấy ra id của conversation
+            let conversationId = this.getAttribute('conversation-id');
+            // lấy được conversation hiện tại từ firestore
+            let currentConversation = await getConversationById(conversationId);
+            // lấy được những người dùng tham gia
+            let memberIds = currentConversation.users;
+            // cập nhật trạng thái của người dùng tham gia
+            for(let memberId of memberIds) {
+                updateUser(memberId, {status: 'free', currentConversation: ''});
+            }
         });
 
     }
 
-    saveRandomUser(userId) {
-        localStorage.setItem('random-user-id', userId);
-    }
+    // saveRandomUser(userId) {
+    //     localStorage.setItem('random-user-id', userId);
+    // }
 
-    getRandomUser() {
-        return localStorage.getItem('random-user-id');
-    }
+    // getRandomUser() {
+    //     return localStorage.getItem('random-user-id');
+    // }
 }
 
 window.customElements.define('user-actions', UserActions);
